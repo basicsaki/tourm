@@ -1,6 +1,6 @@
-require ("./tourm/parser.rb")
-require ("./tourm/algo.rb")
-require ("./tourm/print.rb")
+require_relative ("./tourm/parser.rb")
+require_relative ("./tourm/algo.rb")
+require_relative ("./tourm/print.rb")
 
 parsed_data = Parser.new(ARGV[0])
 parsed_data.process_data
