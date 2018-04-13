@@ -1,6 +1,5 @@
 class Tax
 
-
 	class << self
 		def sales_tax
 			0.10
@@ -28,13 +27,13 @@ class Tax
 			tax = @product.price*Tax.sales_tax
 		end
 		
-		return round_tax(tax)  
+		return format_tax(tax)  
 	end
 
-	def round_tax(tax)
+	def format_tax(tax)
+		factor = 1/0.05
 		tax = 0.0 if tax.nil?
-		nearest_cent = 1/0.05
-		new_tax = (((tax*nearest_cent).ceil)/nearest_cent)
+		new_tax = (((tax*factor).ceil)/factor)
 		return new_tax
 	end
 

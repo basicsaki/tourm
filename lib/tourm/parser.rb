@@ -1,4 +1,4 @@
-require ("./tourm/product.rb")
+require_relative ("./product.rb")
 
 class Parser
 
@@ -13,10 +13,13 @@ class Parser
 
 	#incase data is not provided when the operation is called
 	def mock_data
+		source = File.expand_path(File.dirname(__FILE__))
+
 		puts "Failsafe. Using mock data as no data is provided or the file path is not a complete file path or file does not exist"
-		data = File.open("./tourm/input/input_3.txt","r+") do |f|
+		data = File.open(File.join(source, "input/input_1.txt"),"r+") do |f|
 			f.read
-		end 
+		end
+
 		return data
 	end
 

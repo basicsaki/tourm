@@ -1,4 +1,4 @@
-require ("./tourm/tax.rb")
+require_relative ("./tax.rb")
 
 class Product
 
