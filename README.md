@@ -1,35 +1,73 @@
-# Tourm
+To run the code:
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/tourm`. To experiment with that code, run `bin/console` for an interactive prompt.
+cd /lib
 
-TODO: Delete this and the text above, and describe your gem
+ruby main.rb
 
-## Installation
+SALES TAXES
 
-Add this line to your application's Gemfile:
+Basic sales tax is applicable at a rate of 10% on all goods, except books, food, and medical products that are exempt. Import duty is an additional sales tax applicable on all imported goods at a rate of 5%, with no exemptions.
 
-```ruby
-gem 'tourm'
-```
+When I purchase items I receive a receipt that lists the name of all the items and their price (including tax), finishing with the total cost of the items, and the total amounts of sales taxes paid. The rounding rules for sales tax are that for a tax rate of n%, a shelf price of p contains (np/100 rounded up to the nearest 0.05) amount of sales tax.
 
-And then execute:
+Write an application that prints out the receipt details for these shopping baskets; this application should be written in Ruby [1] and use Rspec [2] to test inputs and the expected outputs. The output should be to standard out or CSV.
 
-    $ bundle
+Proper object orientated design is important. Each row in the input represents a line item of the receipt.
+INPUT
+Input 1
 
-Or install it yourself as:
+Quantity, Product, Price
 
-    $ gem install tourm
+1, book, 12.49
 
-## Usage
+1, music cd, 14.99
 
-TODO: Write usage instructions here
+1, chocolate bar, 0.85
+Input 2
 
-## Development
+Quantity, Product, Price
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+1, imported box of chocolates, 10.00
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+1, imported bottle of perfume, 47.50
+Input 3
 
-## Contributing
+Quantity, Product, Price 1, imported bottle of perfume, 27.99
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/tourm.
+1, bottle of perfume, 18.99
+
+1, packet of headache pills, 9.75
+
+1, box of imported chocolates, 11.25
+OUTPUT
+Output 1
+
+1, book, 12.49
+
+1, music CD, 16.49
+
+1, chocolate bar, 0.85
+
+Sales Taxes: 1.50
+
+Total: 29.83
+Output 2
+
+1, imported box of chocolates, 10.50
+
+1, imported bottle of perfume, 54.65
+
+Sales Taxes: 7.65
+
+Total: 65.15
+Output 3
+
+1, imported bottle of perfume, 32.19
+
+1, bottle of perfume, 20.89
+
+1, packet of headache pills, 9.75
+
+1, imported box of chocolates, 11.85
+
+Sales Taxes: 6.70
