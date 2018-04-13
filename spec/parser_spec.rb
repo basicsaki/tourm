@@ -1,7 +1,6 @@
 require "spec_helper"
 
 RSpec.describe Parser do
-
 	before :each do 
 		@parsed_data = Parser.new
 		@parsed_data.process_data
@@ -11,7 +10,6 @@ RSpec.describe Parser do
 		it "initial data should not be nil"  do
 			expect(@parsed_data.data).not_to be_nil	
 		end
-
 		it "should load up initial data as a String"  do
 			expect(@parsed_data.data).to be_an_instance_of(String)
 		end
@@ -29,7 +27,6 @@ RSpec.describe Parser do
 		it "should process the data as an array"  do
 			expect(@parsed_data.products).to be_an_instance_of(Array)
 		end
-
 		it "each data element should be an object of product"  do
 			expect(@parsed_data.products.first).to be_an_instance_of(Product)
 		end

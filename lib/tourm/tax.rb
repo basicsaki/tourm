@@ -14,7 +14,6 @@ class Tax
 		elsif @product.exempt == false && @product.imported == false
 			tax = @product.price*Tax::SALES_TAX
 		end
-		
 		return format_tax(tax)  
 	end
 
