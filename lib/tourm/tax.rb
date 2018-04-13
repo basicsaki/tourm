@@ -1,18 +1,6 @@
 class Tax
 
-	class << self
-		def sales_tax
-			0.10
-		end
-
-		def import_duty
-			0.05
-		end
-
-		def both_tax
-			0.15
-		end
-	end
+	SALES_TAX,IMPORT_DUTY,BOTH_TAX = 0.10,0.05,0.15
 	
 	def initialize(product)
 		@product = product
@@ -20,11 +8,11 @@ class Tax
 
 	def calculate_tax
 		if @product.exempt == true && @product.imported == true
-			tax = @product.price*Tax.import_duty
+			tax = @product.price*Tax::IMPORT_DUTY
 		elsif @product.exempt == false && @product.imported == true
-			tax = @product.price*Tax.both_tax
+			tax = @product.price*Tax::BOTH_TAX
 		elsif @product.exempt == false && @product.imported == false
-			tax = @product.price*Tax.sales_tax
+			tax = @product.price*Tax::SALES_TAX
 		end
 		
 		return format_tax(tax)  
