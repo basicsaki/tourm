@@ -2,7 +2,7 @@ To run the code:
 
 cd /lib
 
-ruby main.rb
+ruby main.rb file
 
 SALES TAXES
 
